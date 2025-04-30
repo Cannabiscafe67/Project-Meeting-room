@@ -1,0 +1,36 @@
+{% extends 'room/base.html' %}
+
+{% block content %}
+<h2 style="color: rgb(243, 240, 245); text-align:center;"> ค้นหาการจองห้องประชุม</h2>
+<form method="GET" action="{% url 'search_room' %}" class="mb-3">
+    <input type="text" name="query" class="form-control" placeholder="ค้นหาด้วยชื่อผู้จอง">
+    <button type="submit" class="btn btn-info mt-2">ค้นหา</button>
+</form>
+
+{% if results %}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ชื่อผู้จอง</th>
+            <th>ห้อง</th>
+            <th>วันที่</th>
+            <th>เวลา</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for room in results %}
+        <tr>
+            <td>{{ room.name }}</td>
+            <td>{{ room.room }}</td>
+            <td>{{ room.date }}</td>
+            <td>{{ room.start_time|time:"H:i" }} - {{ room.end_time|time:"H:i" }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% elif query %}
+<div class="alert alert-warning">ไม่พบข้อมูลที่ค้นหา</div>
+{% endif %}
+
+<a href="{% url 'home' %}" class="btn btn-secondary mt-3">ย้อนกลับ</a>
+{% endblock %}

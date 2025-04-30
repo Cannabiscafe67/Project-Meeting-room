@@ -1,0 +1,30 @@
+{% extends "room/base.html" %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center" style="height: 80vh;">
+    <div class="card p-4" style="width: 400px;">
+        <h3 class="text-center mb-4" style="color: black;">สมัครสมาชิก</h3>
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label>ชื่อผู้ใช้</label>
+                <input type="text" name="username" class="form-control" placeholder="กรอกชื่อผู้ใช้" required>
+            </div>
+            <div class="mb-3">
+                <label>รหัสผ่าน</label>
+                <input type="password" name="password" class="form-control" placeholder="กรอกรหัสผ่าน" required>
+            </div>
+            <div class="mb-3">
+                <label>อีเมล</label>
+                <input type="email" name="email" class="form-control" placeholder="กรอกอีเมล" required>
+            </div>
+            <div class="d-grid">
+                <button type="submit" class="btn btn-success">สมัครสมาชิก</button>
+            </div>
+            <div class="mt-3 text-center">
+                <a href="{% url 'login' %}">มีบัญชีแล้ว? เข้าสู่ระบบ</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

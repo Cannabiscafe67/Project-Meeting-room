@@ -1,0 +1,13 @@
+{% extends 'room/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 style="color: white;">แก้ไขการจองห้องประชุม</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">บันทึกการแก้ไข</button>
+        <a href="{% url 'home' %}" class="btn btn-secondary">ย้อนกลับ</a>
+    </form>
+</div>
+{% endblock %}

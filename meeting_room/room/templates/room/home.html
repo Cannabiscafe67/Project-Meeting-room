@@ -1,0 +1,76 @@
+{% extends 'room/base.html' %}
+
+{% block content %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
+    * {
+        font-family: "Itim", cursive;
+    }
+    body {
+        background-color: black;
+        margin: 0;
+    }
+    h2 {
+        color: #f3f0f5;
+        text-align: center;
+        margin: 30px 0;
+    }
+    .table {
+        background-color: white;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+    .table thead th {
+        text-align: center;
+        vertical-align: middle;
+    }
+    .table tbody td {
+        vertical-align: middle;
+    }
+</style>
+
+<div class="container py-5">
+    <h2>รายการจองห้องประชุม</h2>
+    <div class="card shadow p-4">
+        <div class="table-responsive">
+            <table class="table table-hover text-center align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ลำดับ</th>
+                        <th>ชื่อผู้จอง</th>
+                        <th>ห้องที่จอง</th>
+                        <th>วันที่</th>
+                        <th>เวลาเริ่ม</th>
+                        <th>เวลาสิ้นสุด</th>
+                        <th>แก้ไข</th>
+                        <th>ยกเลิก</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for room in rooms %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ room.name }}</td>
+                        <td>{{ room.room }}</td>
+                        <td>{{ room.date }}</td>
+                        <td>{{ room.start_time|time:"H:i" }}</td>
+                        <td>{{ room.end_time|time:"H:i" }}</td>
+                        <td>
+                            <a href="{% url 'edit_room' room.id %}" class="btn btn-outline-warning btn-sm">แก้ไข</a>
+                        </td>
+                        <td>
+                            <a href="{% url 'delete_room' room.id %}" class="btn btn-outline-danger btn-sm" onclick="return confirm('คุณแน่ใจว่าต้องการยกเลิกการจองนี้หรือไม่?');">ยกเลิก</a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="8" class="text-center">ยังไม่มีการจองห้อง</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

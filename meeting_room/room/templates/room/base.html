@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ระบบจองห้องประชุม</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    {% block title %}
+    {% endblock %}
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+  
+      *{
+      font-family: "Itim", cursive;
+      font-weight: 400;
+      font-style: normal;
+  }
+  body{
+  
+      background-color: black;
+      margin: 0;
+  }
+  .s {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px;
+      color: white;
+      text-align: center;
+  }
+  .logo img{
+      height: auto;
+      width: 12%;
+  }
+  .nav-list{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  .nav-list li{
+      list-style: none;
+      margin: 0 1rem;
+      height: 4rem;
+  }
+  li a{
+      color: white;
+      font-size: 1rem; 
+      text-decoration: none;    
+  }
+  
+  img{
+      width: 60%;
+      
+  }
+  p{
+      font-size: 1rem;
+      line-height: 1.5;
+      color: white;
+      text-align: center;
+  }
+  section{
+      padding: 0rem 0;
+  }
+  .box{
+      border: 3px solid white;
+      padding: 1.5rem;
+      margin-top: 3rem;
+      border-radius: 25px;
+  }
+  
+  h3{
+      font-size: 3rem;
+      text-align: center;
+      color: white;
+  }
+  .flex{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      color: white;
+  }
+  .flex-fill1 img{
+      width: 280px;
+      height: 300px;
+      object-fit: cover;
+  }
+  .flex-fill2 img{
+      width: 280px;
+      height: 300px;
+      object-fit: cover;
+  }
+  .flex-fill {
+      margin: 0 auto;
+      text-align: center;
+  }
+  .flex-fill h4 {
+      font-size: 1.5rem;
+      text-align: center;
+  }
+  .flex>*{
+      margin: 5px;
+  }
+  .texta p{
+      text-align: center;
+      font-size: 1.5rem;
+  }
+  .card-text{
+      color:black;
+  }
+  h5{
+      text-align: center;
+  }
+  .carousel-item {
+      height: 500px;
+  }
+  .carousel-image-1 {
+      background-image: url("https://images.pexels.com/photos/2623869/pexels-photo-2623869.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+      background-size: cover;
+  }
+  
+  .carousel-image-2 {
+      background-image: url("https://images.pexels.com/photos/2976970/pexels-photo-2976970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+      background-size: cover;
+  }
+  
+  .carousel-image-3 {
+      background-image: url("https://images.pexels.com/photos/7991303/pexels-photo-7991303.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+      background-size: cover;
+  }
+  
+  section.footer p {
+      font-size: 1.5rem;
+      text-align: center;
+      padding: 3rem;
+      color: white;
+      background: url("Screenshot 2024-09-23 192310.png");
+  }
+  h5{
+      padding: 10px
+  }
+  .flex-fill{
+      color: white;
+  }
+  .col-md-4 h5{
+      text-align: center;
+      color: white;
+  }
+  .col-md-4 img{
+      object-fit: cover;
+  }
+  .nav-link a{
+      color: white;
+  }
+  .mb-3{
+      color: white;
+  }
+  .form-check{
+      color: white;
+  }
+  .form-login{
+      color: white;
+  }
+  .text-center{
+      color: white;
+  }
+  .ptext-center h2{
+      color: white;
+  }
+  .day p{
+      color: white;
+  }
+  p{
+      color: white;
+  }
+  li a:hover {
+      padding: 5px; /* ให้เห็นความแตกต่างตอนระหว่างชี้ ชี้แล้วจะเกิดการขยับของตัวอักษรเล็กน้อย */
+      transition: background-color 1.0s ease; /* Transition ทำให้ชี้แล้วสมูทมากขึ้น */
+  }
+  .texta p{
+      text-align: center;
+      font-size: 1.5rem;
+  }
+  .card-text{
+      color:black;
+  }
+  .card-body h5{
+      text-align: center;
+  }
+  .card-text a{
+      text-align: center;
+  }
+  .card a:hover{
+      display: inline-block;
+      color: white;
+      background-color: green;
+      padding: 15px; /* ให้เห็นความแตกต่างตอนระหว่างชี้ ชี้แล้วจะเกิดการขยับของตัวอักษรเล็กน้อย */
+      transition: background-color 0.3s ease; /* Transition ทำให้ชี้แล้วสมูทมากขึ้น */
+      
+  }
+  img{
+      border-radius: 26px;
+  }
+  
+  
+  .footer-dark {
+      padding: 26px 0;
+      color: #f0f9ff;
+      background-color: #282d32;
+    }
+    
+    .footer-dark h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-weight: bold;
+      font-size: 16px;
+    }
+    
+    .footer-dark ul {
+      padding: 0;
+      list-style: none;
+      line-height: 1.6;
+      font-size: 14px;
+      margin-bottom: 0;
+      text-align: center;
+    }
+    
+    .footer-dark ul a {
+      color: inherit;
+      text-decoration: none;
+      opacity: 0.6;
+    }
+    
+    .footer-dark ul a:hover {
+      opacity: 0.8;
+    }
+    
+    @media (max-width:767px) {
+      .footer-dark .item:not(.social) {
+        text-align: center;
+        padding-bottom: 20px;
+      }
+    }
+    
+    .footer-dark .item.text {
+      margin-bottom: 36px;
+    }
+    
+    @media (max-width:767px) {
+      .footer-dark .item.text {
+        margin-bottom: 0;
+      }
+    }
+    
+    .footer-dark .item.text p {
+      opacity: 0.6;
+      margin-bottom: 0;
+    }
+    
+    .footer-dark .item.social {
+      text-align: center;
+    }
+    
+    @media (max-width:991px) {
+      .footer-dark .item.social {
+        text-align: center;
+        margin-top: 20px;
+      }
+    }
+    
+    .footer-dark .item.social > a {
+      font-size: 20px;
+      width: 36px;
+      height: 36px;
+      line-height: 36px;
+      display: inline-block;
+      text-align: center;
+      border-radius: 10%;
+      box-shadow: 0 0 0 1px rgba(240, 240, 240, 0.821);
+      margin: 0 8px;
+      color: #ffffff;
+      opacity: 0.75;
+    }
+    
+    .footer-dark .item.social > a:hover {
+      opacity: 0.9;
+    }
+    
+    .footer-dark .copyright {
+      text-align: center;
+      padding-top: 24px;
+      opacity: 0.3;
+      font-size: 13px;
+      margin-bottom: 0;
+      color: #ffffff;
+    }
+    .c p{
+      padding: 0;
+      list-style: none;
+      line-height: 1.6;
+      font-size: 14px;
+      margin-bottom: 0;
+      text-align: center;
+    } 
+  
+    .footer-dark {
+        margin-top: 80px;
+        padding: 50px 0;
+        background-color: #282d32;
+        color: white;
+    }
+    .carousel-item {
+    height: 700px; /* ปรับจากเดิม 500px เป็น 700px หรือมากกว่านั้น */
+}
+
+.carousel-image-1, .carousel-image-2, .carousel-image-3 {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 700px; /* ตรงนี้ด้วย เพื่อให้รูปไม่เบี้ยว */
+}
+    </style>
+    
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="/home/">ระบบจองห้องประชุม</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+  
+          <li class="nav-item">
+            <a class="nav-link" href="/home/">รายการจองห้อง</a>
+          </li>
+  
+          <li class="nav-item">
+            <a class="nav-link" href="/search/">ค้นหา</a>
+          </li>
+  
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">ห้องประชุม</a>
+          </li>
+  
+          <li class="nav-item">
+            <a class="nav-link" href="/add/">เพิ่มการจอง</a>
+          </li>
+
+        
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <span class="nav-link disabled">| {{ user.username }}</span>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-sm btn-outline-light ms-2" href="{% url 'logout' %}">Logout</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="btn btn-sm btn-primary ms-2" href="{% url 'login' %}">Login</a>
+          </li>
+          <li class="nav-item"> 
+            <a class="btn btn-sm btn-primary ms-2" href="{% url 'register' %}">สมัคร</a>
+          </li>
+          {% endif %}
+  
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <!--banner--> 
+  {% if request.resolver_match.url_name == 'home' or request.resolver_match.url_name == 'about' %}
+  <section id="Slider">
+    <div class="carousel slide" data-bs-ride="carousel" id="mySlider">
+        <ol class="carousel-indicators">
+            <button data-bs-target="#mySlider" data-bs-slide-to="0"></button>
+            <button data-bs-target="#mySlider" data-bs-slide-to="1" class="active"></button>
+            <button data-bs-target="#mySlider" data-bs-slide-to="2"></button>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item carousel-image-1">
+                <div class="container">
+                    <div class="carousel-caption d-none d-sm-block">
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item carousel-image-2 active">
+                <div class="container">
+                    <div class="carousel-caption d-none d-sm-block">
+                        <h1 class="display-3"></h1>
+                        <p>
+                           
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item carousel-image-3">
+                <div class="container">
+                    <div class="carousel-caption d-none d-sm-block">
+                        <h1 class="display-3"></h1>
+                    </div>
+                </div> 
+            </div>
+
+            <button class="carousel-control-prev" data-bs-target="#mySlider" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" data-bs-target="#mySlider" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </div>
+  </section>
+ {% endif %}
+
+<!-- Content -->
+<div class="container mt-4">
+    {% block content %}
+    {% endblock %}
+</div>
+
+<!-- Footer -->
+<div class="footer-dark">
+  <footer>
+    <div class="container">
+      <div class="row text-center">
+
+        <div class="col-md-3 mb-3">
+          <h5>Meeting room</h5>
+          <p>ห้องประชุมหลากหลายขนาด</p>
+        </div>
+
+        <div class="col-md-3 mb-3">
+          <h5>Services</h5>
+          <p>เปิดบริการทุกวัน<br>05.00 - 03.00</p>
+        </div>
+
+        <div class="col-md-3 mb-3">
+          <h5>About</h5>
+          <p>67088177 นายธนกฤต สังกะเสริฐ</p>
+          <p>67123359 นายสุริยะ โพธิ์คลัง</p>
+          <p>67132992 นายชญานนท์ ธรรมโกศล</p>
+        </div>
+
+        <div class="col-md-3 mb-3">
+          <h5>Meeting room.COM</h5>
+          <p>เว็บดี ห้องประชุมดี คนทำเว็บเด็กดี</p>
+        </div>
+
+      </div>
+
+      <hr style="background-color: white;">
+
+      
+
+    </div>
+  </footer>
+</div>
+
+
+<!-- Scripts -->
+{% block scripts %}
+{% endblock %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

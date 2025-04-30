@@ -1,0 +1,11 @@
+{% extends 'room/base.html' %}
+
+{% block content %}
+<h2>ยืนยันการลบการจองห้องประชุม</h2>
+<p>คุณต้องการลบการจองของ <strong>{{ room.name }}</strong> ใช่ไหม?</p>
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">ยืนยันลบ</button>
+    <a href="{% url 'home' %}" class="btn btn-secondary">ยกเลิก</a>
+</form>
+{% endblock %}
